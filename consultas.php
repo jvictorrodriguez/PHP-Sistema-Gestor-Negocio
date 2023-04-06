@@ -78,7 +78,8 @@
 		$conexion = crearConexion("");
 		$sql = "UPDATE  setup SET management=$cambia";
 		$modifica = mysqli_query($conexion, $sql); 
-				
+		
+		
 	}
 
 
