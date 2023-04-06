@@ -9,7 +9,7 @@
 	<h1>Lista de artículos</h1>
 
 	<?php 
-		echo "<br>La cookie de privilegios es : ". $_COOKIE['privilegios']."<br>";
+		//echo "<br>La cookie de privilegios es : ". $_COOKIE['privilegios']."<br>";
 		include "funciones.php";
 		if ($_COOKIE['privilegios']!='autorizado' && ($_COOKIE['privilegios']!='registrado')) {
 			echo "No tienes permiso para estar aquí. ";

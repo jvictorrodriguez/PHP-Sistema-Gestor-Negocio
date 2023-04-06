@@ -190,9 +190,9 @@
 		
 		//Si la consulta SQL de tipo DELETE ha sido correcta devuelve 1
 		if ($result==1) {
-			echo "Desde interior función borrarProducto ".$result;
+			//echo "Desde interior función borrarProducto ".$result;
 		}else{
-			echo "Desde interior función borrarProducto ".$result;
+			//echo "Desde interior función borrarProducto ".$result;
 		}
 	
 	}
@@ -210,9 +210,9 @@
 			
 			//Si la consulta SQL de tipo DELETE ha sido correcta devuelve 1
 	if ($result==1) {
-		echo "Desde interior función editarProducto ".$result;
+		//echo "Desde interior función editarProducto ".$result;
 	}else{
-		echo "Desde interior función editarProducto ".$result;
+		//echo "Desde interior función editarProducto ".$result;
 	}
 	}
 

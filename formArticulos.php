@@ -16,20 +16,16 @@
 		
 
 				
-
-
-		if(isset($_GET["boton"])){
-			//echo ($_GET["boton"]);
-			
-			;
-		} 
-		//echo "Solo get".isset($_GET);
 		if(isset($_GET["accion"])){
 			if ($_GET['accion']=='anadir'){
-				//echo $_GET['accion'];
 				formAnadir();
 			}elseif ($_GET['accion']=='borrar'){
-				formBorrar();
+				formConsulta();
+				echo '<input type="submit" value="Borrar" name="boton">';
+			}elseif ($_GET['accion']=='editar'){
+				formConsulta();
+				echo '<input type="submit" value="Modificar" name="boton">';
+
 			}
 		}
 		
@@ -45,11 +41,10 @@
 		pintaCategorias("");
 		echo '
 		<input type="submit" value="Añadir" name="boton">
-		
 		</form>';
 		
 	}
-	function formBorrar(){
+	function formConsulta(){
 			//Dibujamos la información.  Borrar
 
 			$fila= mysqli_fetch_assoc(getProducto($_GET['id']));	
@@ -73,19 +68,37 @@
 				<label for="coste">Coste: </label>	<input type="number" step="any" name="coste" required value='.$coste.'><br><br>
 				<label for="precio">Precio: </label><input type="number" step="any" name="precio" value='.$precio.'><br><br>';
 				pintaCategorias($categoria);
-				echo '<input type="submit" value="elimina" name="boton">';
 	}
 
-		//echo "isset boton".isset($_GET['boton']);
-		if(isset($_GET['boton']) && $_GET["boton"]=="Añadir"){
-			formAnadir();
-			$productoAnadido = anadirProducto(
-				$_GET['nombre'],
-				$_GET['coste'],$_GET['precio'],$_GET['categoria'],$_GET['nombre']);
-			echo '<br>Se ha añadido el producto ';
-			echo '<a href="articulos.php">Volver </a>';
+
+		if(isset($_GET['boton'])) {
+
+			switch($_GET["boton"]){
+				case "Añadir":
+					formAnadir();
+					$productoAnadido = anadirProducto(
+						$_GET['nombre'],
+						$_GET['coste'],$_GET['precio'],$_GET['categoria'],$_GET['nombre']);
+					echo '<br>Se ha añadido el producto ';
+					echo '<a href="articulos.php">Volver </a>';
+					break;
+				case "Borrar":
+					formConsulta();
+					echo " Se ha eliminado el artículo ";
+					borrarProducto($_GET['id']);
+					echo '<a href="articulos.php">Volver </a>';		
+					break;
+					case "Modificar":
+					formConsulta();
+					echo "Artículo modificado";
+					editarProducto($_GET['id'],$_GET['nombre'], $_GET["coste"], $_GET["precio"], $_GET["categoria"]);
+					echo '<a href="articulos.php">Volver </a>';
+					break;
+				}
 
 		}
+
+			
 
 
 	?>
