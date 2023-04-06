@@ -1,4 +1,4 @@
-# PAC_M07
+# Sistema gestor de un comercio
 Módulo 07: Desarrollo web en
 entorno servidor 2023
 Ejercicio correspondiente a la asignatura de Entorno Servidor del ciclo formativo de Desarrollo de Aplicaciones Web.
