@@ -1,18 +1,31 @@
 <?php 
 
 	function crearConexion() {
-		// Cambiar en el caso en que se monte la base de datos en otro lugar
+		// Datos de la conexión
 		$host = "localhost";
 		$user = "root";
-		$pass = "password";
+		$pass = "";
 		$baseDatos = "pac_dwes";
 
-		// Completar...
+		// Establecemos la conexión con la BBDD
+		$conexion=mysqli_connect($host,$user,$pass,$baseDatos);
+
+		//Si hay un erro en la conexión, lo mostramos y detenemos
+		if (!$conexion){
+			die("<br>Error en la conexión a la base de datos : " . 
+			mysqli_connect_error());
+		}
+
+		//Si está todo correcto, devolvemos la conexión con la base de datos
+		else{
+			//echo ("Conexión correcta con la base de datos : " . $baseDatos);
+		}
+		return $conexion;
 	}
 
 
 	function cerrarConexion($conexion) {
-		// Completar...
+		mysqli_close($conexion);
 	}
 
 
