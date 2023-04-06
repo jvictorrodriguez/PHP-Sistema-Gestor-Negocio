@@ -19,14 +19,15 @@
 		if(isset($_GET["accion"])){
 			if ($_GET['accion']=='anadir'){
 				formAnadir();
+			echo'<input type="submit" value="Añadir" name="boton">';
 			}elseif ($_GET['accion']=='borrar'){
 				formConsulta();
 				echo '<input type="submit" value="Borrar" name="boton">';
 			}elseif ($_GET['accion']=='editar'){
 				formConsulta();
 				echo '<input type="submit" value="Modificar" name="boton">';
-
 			}
+			echo '<a href="articulos.php">Volver </a>';
 		}
 		
 	}
@@ -40,7 +41,6 @@
 		<label for="precio">Precio: </label>	<input type="number" step="any" name="precio" ><br><br>';
 		pintaCategorias("");
 		echo '
-		<input type="submit" value="Añadir" name="boton">
 		</form>';
 		
 	}

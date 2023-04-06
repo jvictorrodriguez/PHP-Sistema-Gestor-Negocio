@@ -30,6 +30,7 @@
 	function pintaTablaUsuarios(){
 		//Obtenemos la lista de usuarios
 		$listaUsuarios = getListaUsuarios();
+		
 
 		// Si hemos recibido un mensaje de error lo mostramos
 		if (is_string($listaUsuarios)) echo $listaUsuarios;
@@ -74,6 +75,7 @@
 			echo $listaProductos;
 		}else{
 			// Si hemos recibido datos, construimos la tabla
+
 			echo 
 			'<table><tr>
 			<th><a href="articulos.php?orden=id">ID</a></th>
@@ -87,6 +89,9 @@
 		//mysqli_fetch_assoc avanza entre cada uno de los elementos del array que contiene
 		//cada vez que se llama, hasta que no haya más, por eso se puede usar en un while.
 	
+		//Comprobamos que los permisos MANAGEMENT estén activados 
+		$management=getPermisos();
+
 			while ($fila= mysqli_fetch_assoc($listaProductos)){
 				echo 
 				"<tr id=" . $fila["id"] . ">\n" .  
@@ -97,7 +102,7 @@
 				"<td>" . $fila["category"] . "</td>\n";
 				
 				//Comprobamos que el usuario tenga permisos de Editar/Borrar
-						if ($_COOKIE['privilegios']=='autorizado'){
+						if ($_COOKIE['privilegios']=='autorizado'&& $management==1){
 							$registro=$fila["id"];
 							echo
 							"<td>" . 
