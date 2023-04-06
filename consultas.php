@@ -78,8 +78,7 @@
 		$conexion = crearConexion("");
 		$sql = "UPDATE  setup SET management=$cambia";
 		$modifica = mysqli_query($conexion, $sql); 
-		cerrarConexion("");
-		
+				
 	}
 
 
@@ -171,9 +170,9 @@
 		
 		//Si la consulta SQL de tipo INSERT ha sido correcta devuelve 1
 		if ($result==1) {
-			echo "Desde interior función anadirProducto ".$result;
+			//echo "Desde interior función anadirProducto ".$result;
 		}else{
-			echo "Desde interior función anadirProducto ".$result;
+			//echo "Desde interior función anadirProducto ".$result;
 		}
 	}
 

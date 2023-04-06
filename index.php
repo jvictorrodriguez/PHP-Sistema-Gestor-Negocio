@@ -39,11 +39,12 @@
 			<a href="usuarios.php">AQUI</a> para entrar al panel de usuarios';
 			break;	
 		case "autorizado":
-			setcookie('privilegios','user');
+			setcookie('privilegios','autorizado');
 			echo '<br>Bienvenido '. $nombre . '. Pulsa
 			<a href="articulos.php">AQUI</a> para entrar al panel de artículos';
 			break;	
 		case "registrado":
+			setcookie('privilegios','registrado');
 			echo '<br>Bienvenido '. $nombre . '. Pulsa
 			<a href="articulos.php">AQUI</a> para entrar al panel de artículos';
 			break;	
